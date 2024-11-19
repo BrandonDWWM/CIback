@@ -12,6 +12,7 @@ const db = mysql.createConnection({
     user: isProduction ? process.env.PROD_DB_USER : process.env.DB_USER,
     password: isProduction ? process.env.PROD_DB_PASSWORD : process.env.DB_PASSWORD,
     database: isProduction ? process.env.PROD_DB_NAME : process.env.DB_NAME,
+    port: isProduction ? process.env.PROD_PORT : process.env.PORT,
 });
 
 db.connect((err) => {

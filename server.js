@@ -16,13 +16,15 @@ app.use(cors({
 }));
 
 db.connect((err) => {
+    const timestamp = new Date().toLocaleString();
     if (err) {
-        console.error('Impossible de se connecter à la base de données:', err);
+        console.error(`[${timestamp}] Impossible de se connecter à la base de données :`, err);
         process.exit(1); 
     } else {
-        const port = process.env.PORT || process.env.PROD_DB_PORT;
+        const port = process.env.DB_PORT || 3306;
+        console.log(`[${timestamp}] Connecté à la base de données`);
         app.listen(port, () => {
-            console.log(`Serveur en cours d'exécution sur le port ${port}`);
+            console.log(`[${timestamp}] Serveur en cours d'exécution sur le port ${port}`);
         });
     }
 });

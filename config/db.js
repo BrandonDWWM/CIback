@@ -12,16 +12,16 @@ const db = mysql.createConnection({
     user: isProduction ? process.env.PROD_DB_USER : process.env.DB_USER,
     password: isProduction ? process.env.PROD_DB_PASSWORD : process.env.DB_PASSWORD,
     database: isProduction ? process.env.PROD_DB_NAME : process.env.DB_NAME,
-    port: isProduction ? process.env.PROD_PORT : process.env.PORT,
+    // port: isProduction ? process.env.PROD_PORT : process.env.DB_PORT,
 });
 
-db.connect((err) => {
-    const timestamp = getCurrentTimestamp();
-    if (err) {
-        console.error(`[${timestamp}] Erreur de connexion à la base de données :`, err);
-    } else {
-        console.log(`[${timestamp}] Connecté à la base de données`);
-    }
-});
+// db.connect((err) => {
+//     const timestamp = getCurrentTimestamp();
+//     if (err) {
+//         console.error(`[${timestamp}] Erreur de connexion à la base de données :`, err);
+//     } else {
+//         console.log(`[${timestamp}] Connecté à la base de données`);
+//     }
+// });
 
 module.exports = db;

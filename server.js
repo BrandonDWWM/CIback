@@ -20,7 +20,7 @@ db.connect((err) => {
         console.error('Impossible de se connecter à la base de données:', err);
         process.exit(1); 
     } else {
-        const port = process.env.PORT || 3333;
+        const port = process.env.PORT || process.env.PROD_DB_PORT;
         app.listen(port, () => {
             console.log(`Serveur en cours d'exécution sur le port ${port}`);
         });

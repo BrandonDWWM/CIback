@@ -12,8 +12,9 @@ const router = express.Router();
 //     })
 // })
 
-app.get('/api/message', (req, res) => {
+router.get('/message', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
     res.json({ message: 'Coucou' });
-  });
+});
 
 module.exports = router;

@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 const titreRoute = require('./routes/titreRoute');
-app.use('/api/titre', titreRoute);
+app.use('/api', titreRoute);
 
 app.use(cors({
     origin: 'http://localhost:5173',
